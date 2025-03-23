@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChurnShield Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400&display=swap');
+    </style>
+</head>
+<body class="bg-gradient-to-b from-[#213555] to-[#3E5879] text-[#F5EFE7]">
+    
+    <!-- Header -->
+    <header class="flex justify-between items-center p-6">
+        <h1 class="text-3xl font-bold" style="font-family: 'Montserrat', sans-serif;">ChurnShield</h1>
+        <nav class="space-x-6" style="font-family: 'Lato', sans-serif;">
+            <a href="main.html" class="hover:text-gray-300">Home</a>
+            <a href="#" class="hover:text-gray-300">Notification</a>
+            <a href="#" class="hover:text-gray-300">Statistics</a>
+            <a href="contact.html" class="hover:text-gray-300">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <section class="flex flex-col items-center space-y-8 p-8">
+        <!-- Monthly Interaction Score Chart -->
+        <div class="w-3/4 h-[500px] bg-[#1E2A47] rounded-xl border border-gray-300 p-6 text-lg relative">
+            <h2 class="text-xl font-semibold mb-4">Monthly Interaction Score</h2>
+            <div class="h-full">
+                <canvas id="interactionChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- User Division Pie Chart -->
+        <div class="w-3/4 h-[500px] bg-[#1A2B4C] rounded-xl border border-gray-300 p-6 text-lg relative">
+            <h2 class="text-xl font-semibold mb-4">User Division Pie Chart</h2>
+            <div class="h-full">
+                <canvas id="userChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Monthly Interaction Score Chart
+        const ctx1 = document.getElementById('interactionChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Interaction Score',
+                    data: [65, 59, 80, 81, 56, 55],
+                    borderColor: '#FFFFFF', // White line
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Transparent white fill
+                    borderWidth: 2,
+                    pointBackgroundColor: '#FFFFFF'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        ticks: { color: '#FFFFFF' },
+                        grid: { color: 'rgba(255, 255, 255, 0.2)' }
+                    },
+                    y: {
+                        ticks: { color: '#FFFFFF' },
+                        grid: { color: 'rgba(255, 255, 255, 0.2)' }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#FFFFFF' } }
+                }
+            }
+        });
+
+        // User Division Pie Chart
+        const ctx2 = document.getElementById('userChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Active', 'Inactive', 'Churned'],
+                datasets: [{
+                    label: 'User Distribution',
+                    data: [50, 30, 20],
+                    backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#FFFFFF' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

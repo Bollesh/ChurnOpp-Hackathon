@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChurnShield Statistics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400&display=swap');
+    </style>
+</head>
+<body class="bg-gradient-to-b from-[#213555] to-[#3E5879] text-[#F5EFE7]">
+    
+    <!-- Header -->
+    <header class="flex justify-between items-center p-6">
+        <h1 class="text-3xl font-bold" style="font-family: 'Montserrat', sans-serif;">ChurnShield</h1>
+        <nav class="space-x-6" style="font-family: 'Lato', sans-serif;">
+            <a href="main.html" class="hover:text-gray-300">Home</a>
+            <a href="dashboard.html" class="hover:text-gray-300">Dashboard</a>
+            <a href="notification.html" class="hover:text-gray-300">Notification</a>
+            <a href="contact.html" class="hover:text-gray-300">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Statistics Content -->
+    <section class="flex flex-col items-center space-y-8 p-8">
+        <h2 class="text-2xl font-semibold">User Statistics Overview</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-3/4">
+            <!-- Avg Time Spent -->
+            <div class="bg-[#1E2A47] p-6 rounded-xl border border-gray-300 text-center">
+                <h3 class="text-lg font-semibold">Average Time Spent</h3>
+                <p id="avgTime" class="text-3xl font-bold mt-4">-</p>
+            </div>
+
+            <!-- Avg Interaction Score -->
+            <div class="bg-[#1A2B4C] p-6 rounded-xl border border-gray-300 text-center">
+                <h3 class="text-lg font-semibold">Average Interaction Score</h3>
+                <p id="avgInteraction" class="text-3xl font-bold mt-4">-</p>
+            </div>
+
+            <!-- Avg Pages Visited -->
+            <div class="bg-[#172A45] p-6 rounded-xl border border-gray-300 text-center">
+                <h3 class="text-lg font-semibold">Average Pages Visited</h3>
+                <p id="avgPages" class="text-3xl font-bold mt-4">-</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simulated data fetch (Replace this with actual backend call)
+        function fetchUserStatistics() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        avgTimeSpent: "12m 34s",
+                        avgInteractionScore: "87%",
+                        avgPagesVisited: "8 pages"
+                    });
+                }, 1000);
+            });
+        }
+
+        // Load statistics on page load
+        async function loadStatistics() {
+            const stats = await fetchUserStatistics();
+
+            document.getElementById("avgTime").innerText = stats.avgTimeSpent;
+            document.getElementById("avgInteraction").innerText = stats.avgInteractionScore;
+            document.getElementById("avgPages").innerText = stats.avgPagesVisited;
+        }
+
+        loadStatistics();
+    </script>
+
+</body>
+</html>
