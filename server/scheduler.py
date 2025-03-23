@@ -1,8 +1,8 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 
 
-hour = 16
-minute = 8
+hour = 0
+minute = 0
 
 def scheduled_job():
     print(f'This job will run at {hour}, {minute}')
