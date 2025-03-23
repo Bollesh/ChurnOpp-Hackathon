@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChurnShield</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400&display=swap');
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 1.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-[linear-gradient(to_bottom,#213555_0%,#3E5879_23%,#3E5879_100%)] text-[#F5EFE7]">
+    <header class="flex justify-between items-center p-6">
+        <h1 class="text-3xl font-bold" style="font-family: 'Montserrat', sans-serif; color: #F5EFE7;">ChurnShield</h1>
+        <nav class="space-x-6" style="font-family: 'Microsoft Sans Serif', sans-serif; color: #F5EFE7;">
+            <a href="dashboard.html" class="hover:text-gray-300">Dashboard</a>
+
+            <a href="#" class="hover:text-gray-300">Notification</a>
+            <a href="#" class="hover:text-gray-300">Statistics</a>
+            <a href="contact.html" class="hover:text-gray-300">Contact</a>
+
+        </nav>
+    </header>
+    
+    <section class="flex justify-center items-center h-screen">
+        <h2 class="text-4xl font-semibold animate-fadeInUp" style="font-family: 'Lato', sans-serif; color: #E7D9CF;">Win Back Your Users Before They Churn!</h2>
+    </section>
+</body>
+</html>
